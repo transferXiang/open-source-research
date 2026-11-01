@@ -1,0 +1,3 @@
+import {editions} from '../lib/content.mjs';
+import {link} from '../lib/render.mjs';
+export function GET(){const origin='https://transferxiang.github.io';return new Response('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>开源研究室</title><link>'+origin+link()+'</link><description>开源项目深度调研与新一期研究</description><language>zh-CN</language>'+editions.map(e=>'<item><title>'+e.title+'</title><link>'+origin+link('research/'+e.id)+'</link><guid isPermaLink="true">'+origin+link('research/'+e.id)+'</guid><pubDate>'+new Date(e.id+'T12:00:00+08:00').toUTCString()+'</pubDate><description>10 份深度评估；文档调研，未实测。</description></item>').join('')+'</channel></rss>',{headers:{'Content-Type':'application/rss+xml; charset=utf-8'}});}

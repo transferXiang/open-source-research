@@ -1,0 +1,25 @@
+---
+import {routes, page, data} from '../lib/content.mjs';
+import {link} from '../lib/render.mjs';
+import '../styles/site.css';
+export function getStaticPaths(){return routes.map(path=>({params:{path:path||undefined},props:{path}}));}
+const {path}=Astro.props;
+const html=page(path);
+const searchPaths=routes.filter(p=>/^(projects|topics|tests)\/[^/]+$/.test(p)||/^research\/[^/]+$/.test(p)||p==='about/methodology');
+const searchEntries=searchPaths.map(url=>{const body=page(url);return {url,title:(body.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||url).replace(/<[^>]*>/g,''),text:body.replace(/<[^>]+>/g,' '),type:url.split('/')[0]};});
+const clientData={...data,entries:searchEntries};
+const title=(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/)?.[1]||'开源研究室').replace(/<[^>]*>/g,'');
+const description='开源项目深度调研：AI 协作、图片视频与办公效率。能力、成本、替代方案、证据与试用路径。研究快照 2026-11-01。';
+const nav=[['','首页'],['projects','项目库'],['research','调研期刊'],['topics','专题指南'],['tests','实测记录']];
+const active=path.split('/')[0]==='reviews'?'projects':path.split('/')[0];
+---
+<!doctype html><html lang="zh-CN" data-theme="forest"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#245c4a"/><title>{title} · 开源研究室</title><link rel="canonical" href={new URL(link(path),Astro.site)}/><link rel="icon" type="image/svg+xml" href={link('favicon.svg').replace(/\/$/,'')}/><link rel="alternate" type="application/rss+xml" title="开源研究室" href={link('feed.xml').replace(/\/$/,'')}/><meta property="og:title" content={title+' · 开源研究室'}/><meta property="og:description" content={description}/><meta property="og:type" content={path.includes('projects/')?'article':'website'}/></head><body>
+<a class="skip" href="#main">跳到主要内容</a>
+<header class="header"><div class="wrap head-inner"><a href={link()} class="brand"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="1.5"/><path d="M9 11l-4 5 4 5m14-10 4 5-4 5m-5-13-4 16" stroke="currentColor" stroke-width="1.5"/></svg>开源研究室</a><nav id="primary" class="primary" aria-label="主导航">{nav.map(([url,label])=><a href={link(url)} aria-current={active===url?'page':undefined}>{label}</a>)}</nav><div class="header-tools"><a href={link('saved')} class="saved-nav">收藏</a><a href={link('search')} class="search-nav">全站搜索 <span class="key">/</span></a><button class="mobile-menu" aria-expanded="false" aria-controls="primary">菜单</button></div></div></header>
+<main id="main" class="wrap" tabindex="-1" data-path={path} set:html={html}/>
+<noscript><div class="wrap notice">正文无需脚本即可阅读；搜索、收藏和比较需要浏览器启用 JavaScript。</div></noscript>
+<footer class="foot"><div class="wrap foot-inner"><div><b>开源研究室</b><br/>以证据理解项目，以任务判断价值。<br/>内容快照 2026.11.01 · 非实时榜单</div><div class="foot-links"><a href={link('saved')}>我的收藏</a><a href={link('about/methodology')}>研究方法</a><a href={link('about/changelog')}>更新记录</a><a href={link('about/correction')}>纠错反馈</a><a href={link('feed.xml').replace(/\/$/,'')}>RSS 订阅</a><a href="https://github.com/transferXiang/open-source-research">GitHub</a></div></div></footer>
+<div class="toast" id="toast" role="status" hidden></div>
+<script id="data" type="application/json" set:html={JSON.stringify(clientData).replace(/</g,'\\u003c')}/>
+<script>import '../scripts/client.mjs';</script>
+</body></html>

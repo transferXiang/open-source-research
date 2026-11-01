@@ -1,0 +1,14 @@
+{
+  "name": "open-source-research",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build && node scripts/check-site.mjs",
+    "preview": "astro preview --host 127.0.0.1",
+    "validate": "node scripts/check-content.mjs"
+  },
+  "dependencies": { "astro": "latest", "marked": "latest" },
+  "engines": { "node": ">=22.12.0" }
+}
