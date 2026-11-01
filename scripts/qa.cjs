@@ -7,9 +7,9 @@ const page=await browser.newPage({viewport:{width:1440,height:1000}});const erro
 const base=process.env.QA_URL||'http://127.0.0.1:4321/open-source-research/';fs.mkdirSync('qa',{recursive:true});
 await page.goto(base);await page.screenshot({path:'qa/home-desktop.png',fullPage:true});
 await page.goto(base+'projects/');await page.getByRole('button',{name:'创作与表达',exact:true}).click();assert.equal(await page.locator('.project-card').count(),3);
-await page.getByRole('button',{name:'全部',exact:true}).click();await page.locator('[data-compare="hyperframes"]').click();await page.locator('[data-compare="digup"]').click();await page.getByRole('link',{name:'按用途比较 →'}).click();assert.equal(await page.locator('thead th').count(),3);
-await page.goto(base+'projects/hyperframes/');await page.locator('[data-save]').click();await page.goto(base+'saved/');assert.equal(await page.locator('.project-card').count(),1);
-await page.goto(base+'search/?q='+encodeURIComponent('中文'));assert.ok(await page.locator('.project-card').count()>0);
+await page.getByRole('button',{name:'全部',exact:true}).click();await page.locator('[data-compare="hyperframes"]').click();await page.locator('[data-compare="digup"]').click();await page.getByRole('link',{name:'按用途比较 →'}).click();await page.locator('thead th').first().waitFor();assert.equal(await page.locator('thead th').count(),3);
+await page.goto(base+'projects/hyperframes/');await page.locator('[data-save]').click();await page.waitForFunction(()=>document.querySelector('[data-save]').getAttribute('aria-pressed')==='true');await page.goto(base+'saved/');await page.locator('.project-card').first().waitFor();assert.equal(await page.locator('.project-card').count(),1);
+await page.goto(base+'search/?q='+encodeURIComponent('中文'));await page.locator('.project-card').first().waitFor();assert.ok(await page.locator('.project-card').count()>0);
 await page.goto(base+'reviews/hyperframes/2026-11-01/');assert.equal(await page.locator('.reading section[id^="s-"]').count(),8);await page.screenshot({path:'qa/article-desktop.png',fullPage:true});
 for(const width of [375,390,768,844]){
 await page.setViewportSize({width,height:width===844?390:844});
