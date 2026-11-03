@@ -6,7 +6,7 @@ const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/A
 const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
 const base=process.env.QA_URL||'http://127.0.0.1:4321/open-source-research/';fs.mkdirSync('qa',{recursive:true});
 await page.goto(base);await page.screenshot({path:'qa/home-desktop.png',fullPage:true});
-await page.goto(base+'projects/');await page.getByRole('button',{name:'创作与表达',exact:true}).click();assert.equal(await page.locator('.project-card').count(),3);
+await page.goto(base+'projects/');await page.getByRole('button',{name:'创作与表达',exact:true}).click();assert.equal(await page.locator('.project-card').count(),4);
 await page.getByRole('button',{name:'全部',exact:true}).click();await page.locator('[data-compare="hyperframes"]').click();await page.locator('[data-compare="digup"]').click();await page.getByRole('link',{name:'按用途比较 →'}).click();await page.locator('thead th').first().waitFor();assert.equal(await page.locator('thead th').count(),3);
 await page.goto(base+'projects/hyperframes/');await page.locator('[data-save]').click();await page.waitForFunction(()=>document.querySelector('[data-save]').getAttribute('aria-pressed')==='true');await page.goto(base+'saved/');await page.locator('.project-card').first().waitFor();assert.equal(await page.locator('.project-card').count(),1);
 await page.goto(base+'search/?q='+encodeURIComponent('中文'));await page.locator('.project-card').first().waitFor();assert.ok(await page.locator('.project-card').count()>0);

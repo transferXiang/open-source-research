@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-03",
+  "timezone": "Asia/Shanghai",
+  "method": "GitHub authenticated API; README and releases review; no product tests; trending cache not used for growth claims",
+  "projects": [
+    {
+      "repo": "tt-a1i/archify",
+      "name": "archify",
+      "stars": 92899,
+      "license": "Apache-2.0",
+      "pushed": "2026-11-03T07:57:22Z",
+      "release": {
+        "tag": "v3.2.0",
+        "date": "2026-10-19T00:43:00Z",
+        "url": "https://github.com/tt-a1i/archify/releases/tag/v3.2.0"
+      }
+    },
+    {
+      "repo": "mksglu/context-mode",
+      "name": "context-mode",
+      "stars": 33320,
+      "license": "Elastic-2.0（源码可用，有限制）",
+      "pushed": "2026-11-03T07:51:24Z",
+      "release": {
+        "tag": "v1.0.169",
+        "date": "2026-06-29T18:18:53Z",
+        "url": "https://github.com/mksglu/context-mode/releases/tag/v1.0.169"
+      }
+    },
+    {
+      "repo": "microsoft/markitdown",
+      "name": "markitdown",
+      "stars": 193642,
+      "license": "MIT",
+      "pushed": "2026-10-28T15:33:14Z",
+      "release": {
+        "tag": "v0.1.9",
+        "date": "2026-10-21T19:40:32Z",
+        "url": "https://github.com/microsoft/markitdown/releases/tag/v0.1.9"
+      }
+    }
+  ]
+}

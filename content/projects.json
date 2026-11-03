@@ -158,5 +158,53 @@
     "heat": "当前 5,966 Star；今日 Trending 显示 +1,004。10 月 27 日版本加强自带密钥的图片/视频模型、应用预览与恢复。",
     "verdict": "作为新热点值得试一个端到端任务，但暂不建议迁移你的主工作环境。它与现有 Agent 桌面工具重叠明显，是否带来额外价值取决于编排、可编辑成果和费用透明度。",
     "currentReviewId": "orkas-2026-11-01"
+  },
+  {
+    "id": "archify",
+    "repo": "tt-a1i/archify",
+    "name": "Archify",
+    "category": "创作与表达",
+    "decision": "优先试用",
+    "confidence": "中高",
+    "effort": "低至中",
+    "priority": 11,
+    "tagline": "把复杂流程变成可点击、可核对、可导出图片的交互图解。",
+    "benefit": "技术方案评审、规则流程说明、知识地图与旅行计划。",
+    "verdict": "优先试用在已有正确资料的技术图解上，而不是让它凭空设计系统。它补的是图文解释与分享环节，可以与视频制作串联，但不是视频生成模型。建议先做一张审阅者能沿节点追踪证据的规则流程图。",
+    "stage": "近期活跃",
+    "heat": "2026-11-03 API 快照 92,899 Star；最近推送 2026-11-03T07:57:22Z。没有独立核验近七天增长。",
+    "currentReviewId": "archify-2026-11-03"
+  },
+  {
+    "id": "context-mode",
+    "repo": "mksglu/context-mode",
+    "name": "context-mode",
+    "category": "AI 与开发",
+    "decision": "有条件试用",
+    "confidence": "中",
+    "effort": "中",
+    "priority": 12,
+    "tagline": "让大量工具输出先被检索，而不是全部塞进 AI 对话。",
+    "benefit": "长日志、测试输出和多文件检索任务的上下文管理。",
+    "verdict": "值得小范围验证，但先把它当作有许可证限制的源码可用工具，而非宽松开源的通用底座。作者宣传的上下文缩减比例不等于账单同比下降，也不等于任务正确率上升。",
+    "stage": "近期活跃",
+    "heat": "2026-11-03 API 快照 33,320 Star；最近推送 2026-11-03T07:51:24Z。没有独立核验近七天增长。",
+    "currentReviewId": "context-mode-2026-11-03"
+  },
+  {
+    "id": "markitdown",
+    "repo": "microsoft/markitdown",
+    "name": "MarkItDown",
+    "category": "办公与生活",
+    "decision": "优先试用",
+    "confidence": "中高",
+    "effort": "低至中",
+    "priority": 13,
+    "tagline": "把办公文件转成更便于 AI 读取和检索的 Markdown。",
+    "benefit": "批量资料预处理、制度比对、知识库入库与研究笔记。",
+    "verdict": "这轮对办公效率最直接的候选：先拿真实但脱敏的文档测试“读出内容是否完整”。它不是高保真格式转换器，也不是转换完就具备正确知识的问答系统。",
+    "stage": "近期活跃",
+    "heat": "2026-11-03 API 快照 193,642 Star；最近推送 2026-10-28T15:33:14Z。没有独立核验近七天增长。",
+    "currentReviewId": "markitdown-2026-11-03"
   }
 ]
