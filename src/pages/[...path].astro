@@ -2,6 +2,7 @@
 import {routes, page, data} from '../lib/content.mjs';
 import {link} from '../lib/render.mjs';
 import '../styles/site.css';
+import '../styles/monochrome.css';
 export function getStaticPaths(){return routes.map(path=>({params:{path:path||undefined},props:{path}}));}
 const {path}=Astro.props;
 const html=page(path);
@@ -13,7 +14,7 @@ const description='开源项目深度调研：AI 协作、图片视频与办公�
 const nav=[['','首页'],['projects','项目库'],['research','调研期刊'],['topics','专题指南'],['tests','实测记录']];
 const active=path.split('/')[0]==='reviews'?'projects':path.split('/')[0];
 ---
-<!doctype html><html lang="zh-CN" data-theme="forest"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#245c4a"/><title>{title} · 开源研究室</title><link rel="canonical" href={new URL(link(path),Astro.site)}/><link rel="icon" type="image/svg+xml" href={link('favicon.svg').replace(/\/$/,'')}/><link rel="alternate" type="application/rss+xml" title="开源研究室" href={link('feed.xml').replace(/\/$/,'')}/><meta property="og:title" content={title+' · 开源研究室'}/><meta property="og:description" content={description}/><meta property="og:type" content={path.includes('projects/')?'article':'website'}/></head><body>
+<!doctype html><html lang="zh-CN" data-theme="forest"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#202020"/><title>{title} · 开源研究室</title><link rel="canonical" href={new URL(link(path),Astro.site)}/><link rel="icon" type="image/svg+xml" href={link('favicon.svg').replace(/\/$/,'')}/><link rel="alternate" type="application/rss+xml" title="开源研究室" href={link('feed.xml').replace(/\/$/,'')}/><meta property="og:title" content={title+' · 开源研究室'}/><meta property="og:description" content={description}/><meta property="og:type" content={path.includes('projects/')?'article':'website'}/></head><body>
 <a class="skip" href="#main">跳到主要内容</a>
 <header class="header"><div class="wrap head-inner"><a href={link()} class="brand"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="1.5"/><path d="M9 11l-4 5 4 5m14-10 4 5-4 5m-5-13-4 16" stroke="currentColor" stroke-width="1.5"/></svg>开源研究室</a><nav id="primary" class="primary" aria-label="主导航">{nav.map(([url,label])=><a href={link(url)} aria-current={active===url?'page':undefined}>{label}</a>)}</nav><div class="header-tools"><a href={link('saved')} class="saved-nav">收藏</a><a href={link('search')} class="search-nav">全站搜索 <span class="key">/</span></a><button class="mobile-menu" aria-expanded="false" aria-controls="primary">菜单</button></div></div></header>
 <main id="main" class="wrap" tabindex="-1" data-path={path} set:html={html}/>

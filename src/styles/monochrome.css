@@ -1,0 +1,17 @@
+/* Editorial monochrome: hierarchy comes from type, space and contrast. */
+html[data-theme=forest]{--paper:#fafafa;--white:#fff;--ink:#181818;--navy:#202020;--blue:#262626;--muted:#626262;--line:#dedede;--pale:#f0f0f0;--accent:#555;--green:#333;--header-bg:#fafafa;--body-text:#303030;--callout-bg:#f1f1f1;--callout-ink:#252525;--secondary-accent:#666;--surface-hover:#eaeaea;--notice-bg:#f0f0f0;--notice-ink:#414141;--brand-soft:#a3a3a3;--focus:#242424;--on-primary:#fff}
+.pill,.pill.green,.pill.amber{background:#ededed;color:#343434}
+.feature{border-top-color:#313131}.feature .issue-no{color:#999}
+.notice{background:#f0f0f0;color:#414141;border-left-color:#686868}
+.reading .callout{background:#f1f1f1;border-left-color:#292929;color:#252525}
+.reading .callout p,.callout .kicker{color:#252525}
+.monogram{background:#eee;border-color:#d7d7d7;color:#303030}
+button,input,select{border-color:#929292}
+button[aria-pressed=true]{color:#fff;background:#242424;border-color:#242424}
+.cta,.compare-bar,.toast{background:#202020;color:#fff;border-color:#202020}
+.cta:hover{background:#000;color:#fff;filter:none}
+a:hover{color:#000}.compare-bar a:hover{color:#fff}
+.compare-bar button{background:#fff;color:#242424}
+.reading figure{margin:24px 0 32px}.reading figcaption{margin-top:10px;line-height:1.7}
+.hero+.notice{margin-bottom:36px}.home-bottom{margin-top:30px}
+@media print{body{background:#fff}.reading .callout{border:1px solid #777}}
