@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "method": "公开 API、官方文档与外部材料交叉阅读；未运行产品",
+  "projects": [
+    {
+      "repo": "anomalyco/hex",
+      "name": "Hex",
+      "stars": 4369,
+      "license": "MIT",
+      "pushed": "2026-11-03T15:47:57Z",
+      "release": {
+        "tag": "v3.3.0",
+        "date": "2026-11-02T16:43:16Z",
+        "url": "https://github.com/anomalyco/hex/releases/tag/v3.3.0"
+      }
+    },
+    {
+      "repo": "vercel-labs/agent-desktop",
+      "name": "agent-desktop",
+      "stars": 12033,
+      "license": "Apache-2.0",
+      "pushed": "2026-11-03T12:24:46Z",
+      "release": {
+        "tag": "v1.1.0",
+        "date": "2026-11-03T04:13:45Z",
+        "url": "https://github.com/vercel-labs/agent-desktop/releases/tag/v1.1.0"
+      }
+    },
+    {
+      "repo": "thedotmack/claude-mem",
+      "name": "claude-mem",
+      "stars": 111526,
+      "license": "Apache-2.0",
+      "pushed": "2026-11-03T03:52:52Z",
+      "release": {
+        "tag": "v15.9.0",
+        "date": "2026-11-02T18:03:43Z",
+        "url": "https://github.com/thedotmack/claude-mem/releases/tag/v15.9.0"
+      }
+    },
+    {
+      "repo": "max-sixty/worktrunk",
+      "name": "worktrunk",
+      "stars": 10343,
+      "license": "MIT OR Apache-2.0",
+      "pushed": "2026-11-03T15:43:30Z",
+      "release": {
+        "tag": "v0.81.0",
+        "date": "2026-10-20T21:28:34Z",
+        "url": "https://github.com/max-sixty/worktrunk/releases/tag/v0.81.0"
+      }
+    },
+    {
+      "repo": "D4Vinci/Scrapling",
+      "name": "Scrapling",
+      "stars": 94083,
+      "license": "BSD-3-Clause",
+      "pushed": "2026-11-02T20:16:23Z",
+      "release": {
+        "tag": "v0.5",
+        "date": "2026-10-17T21:43:59Z",
+        "url": "https://github.com/D4Vinci/Scrapling/releases/tag/v0.5"
+      }
+    },
+    {
+      "repo": "mattpocock/skills",
+      "name": "skills",
+      "stars": 311072,
+      "license": "MIT",
+      "pushed": "2026-11-01T11:42:33Z",
+      "release": {
+        "tag": "v1.3.2",
+        "date": "2026-10-29T10:27:41Z",
+        "url": "https://github.com/mattpocock/skills/releases/tag/v1.3.2"
+      }
+    },
+    {
+      "repo": "QwenLM/Qwen-Image",
+      "name": "Qwen-Image",
+      "stars": 8458,
+      "license": "Apache-2.0",
+      "pushed": "2026-02-10T07:37:37Z",
+      "release": {
+        "tag": "未取得正式发行版",
+        "date": null,
+        "url": "https://github.com/QwenLM/Qwen-Image"
+      }
+    },
+    {
+      "repo": "Lightricks/LTX-2",
+      "name": "LTX-2",
+      "stars": 10062,
+      "license": "LTX-2.x Community License（有条件开放权重）",
+      "pushed": "2026-10-18T17:41:34Z",
+      "release": {
+        "tag": "v1.5.0",
+        "date": "2026-10-18T17:41:36Z",
+        "url": "https://github.com/Lightricks/LTX-2/releases/tag/v1.5.0"
+      }
+    }
+  ]
+}

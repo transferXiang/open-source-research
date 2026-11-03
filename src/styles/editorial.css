@@ -1,0 +1,30 @@
+/* Neutral editorial foundation; color conveys links and cautions, never scores. */
+html[data-theme=forest]{--blue:#1d4ed8;--focus:#2563eb;--accent:#1d4ed8;--secondary-accent:#9a3412}
+.reading a:not(.cta),.project-card h2 a,.text-link,.toc a:hover,.sources a{color:#1d4ed8}
+a:hover{color:#1e40af}
+.notice{background:#fff7ed;color:#7c2d12;border-left-color:#c2410c}
+.feature{border-top-color:#2563eb}
+.kicker{color:#1d4ed8}
+.workflow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0}
+.workflow>div{background:#eff6ff;border:1px solid #dbeafe;padding:16px;border-radius:8px;min-width:0}
+.workflow p{margin:8px 0 0;font-size:16px}
+.article-outline{margin:20px 0;border:1px solid var(--line);padding:14px;border-radius:8px}
+.article-outline summary,.media-demo summary{cursor:pointer;font-weight:600;min-height:30px}
+.article-outline a{display:block;margin-top:12px}
+.reading img,.reading video{max-width:100%;height:auto;display:block}
+.reading img{border:1px solid var(--line);border-radius:8px}
+.reading h2[id]{scroll-margin-top:110px}
+.reading .table-wrap{max-width:100%;overflow-x:auto}
+.reading table{min-width:520px}
+.reading td,.reading th{white-space:normal;overflow-wrap:anywhere;min-width:110px}
+.reading blockquote{border-left:3px solid #2563eb;margin:24px 0;padding:8px 20px;background:#eff6ff}
+.media-demo{border:1px solid var(--line);padding:16px;margin:30px 0;border-radius:8px}
+.media-demo video{margin:18px 0;width:100%;background:#181818}
+.media-demo:not([open]) img{display:none}
+.issue-block{margin-bottom:50px}
+.inline-save{display:none}
+@media(max-width:780px){.reading .table-wrap::before{content:"表格可左右滑动 →";display:block;font-size:12px;color:#626262;margin-bottom:8px}}
+.longform .reading,.longform{min-width:0}
+.reading p,.reading li{overflow-wrap:anywhere}
+@media(min-width:1000px){.article-outline{display:none}}
+@media(max-width:780px){.inline-save{display:inline-block}.longform .toc{display:none}.workflow{grid-template-columns:1fr}.workflow>div{padding:12px 16px}.workflow p{margin:4px 0 0}.reading h2{font-size:23px}.facts{grid-template-columns:1fr 1fr}.page-head h1{overflow-wrap:anywhere}.reading table{font-size:14px}}

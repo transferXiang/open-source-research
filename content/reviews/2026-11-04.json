@@ -1,0 +1,378 @@
+[
+  {
+    "id": "hex",
+    "repo": "anomalyco/hex",
+    "name": "Hex",
+    "category": "办公与生活",
+    "stage": "重写资料评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-03",
+    "priority": 1,
+    "decision": "口述输入候选",
+    "effort": "按设备与模型而定",
+    "confidence": "功能有文档依据；未本机测试",
+    "tagline": "按键说话，本机转写，插入当前应用；不是自动完成工作。",
+    "benefit": "给 AI 口述需求、起草说明与记录想法。",
+    "verdict": "适合研究较长自然语言的输入流程，不能据此保证中文准确率或替代现有听写。",
+    "heat": "11 月 4 日发布重写稿；主要资料基线保留 11 月 3 日，仓库元数据于发布时核对。",
+    "bodyPath": "articles/hex/2026-11-04.md",
+    "flow": [
+      "口述需求或笔记",
+      "快捷键、本机转写、插入",
+      "由你校对与提交的文字"
+    ],
+    "scope": "11 月 3 日热门候选；重写资料型评估。",
+    "sources": [
+      [
+        "v3.3.0 官方 README",
+        "https://github.com/anomalyco/hex/blob/v3.3.0/README.md"
+      ],
+      [
+        "v3.3.0 官方发布说明",
+        "https://github.com/anomalyco/hex/releases/tag/v3.3.0"
+      ],
+      [
+        "v3.3.0 词表文档",
+        "https://github.com/anomalyco/hex/blob/v3.3.0/docs/features/vocabulary.md"
+      ],
+      [
+        "v3.3.0 Windows 文档",
+        "https://github.com/anomalyco/hex/blob/v3.3.0/docs/windows.md"
+      ],
+      [
+        "v3.3.0 功能地图",
+        "https://github.com/anomalyco/hex/blob/v3.3.0/docs/features/README.md"
+      ],
+      [
+        "v3.3.0 Linux 文档",
+        "https://github.com/anomalyco/hex/blob/v3.3.0/docs/linux.md"
+      ],
+      [
+        "官方发行与下载说明",
+        "https://github.com/anomalyco/hex/blob/v3.3.0/docs/downloads.md"
+      ],
+      [
+        "AI 新视界中文比较：有模型/工具及版本边界，未经本站复现",
+        "https://aiview.tw/articles/handy-hex-dictation-zhtw-2026-11"
+      ],
+      [
+        "MrKeyoor 构建记录：不代表发行版效果",
+        "https://mrkeyoor.com/repos/hex/"
+      ],
+      [
+        "Handy 官方项目",
+        "https://github.com/cjpais/Handy"
+      ]
+    ]
+  },
+  {
+    "id": "agent-desktop",
+    "repo": "vercel-labs/agent-desktop",
+    "name": "agent-desktop",
+    "category": "AI 与开发",
+    "decision": "按应用评估",
+    "tagline": "给 Agent 结构化的桌面观察与操作接口，不是独立办公助理。",
+    "benefit": "原生软件的观察、草稿录入与可审核自动化。",
+    "flow": [
+      "应用与任务边界",
+      "读取控件、操作、再观察",
+      "可核对的桌面状态"
+    ],
+    "sources": [
+      [
+        "官方 README 与能力说明",
+        "https://github.com/vercel-labs/agent-desktop#readme"
+      ],
+      [
+        "官方安装、权限与平台说明",
+        "https://github.com/vercel-labs/agent-desktop/blob/main/docs/install.md"
+      ],
+      [
+        "v1.1.0 正式发布记录",
+        "https://github.com/vercel-labs/agent-desktop/releases/tag/v1.1.0"
+      ],
+      [
+        "ToolPassed 条目：索引明确标注未测试；全文本轮未取得",
+        "https://toolpassed.com/skills/agent-desktop/"
+      ],
+      [
+        "Early Signal：项目发现与简介，不是实测",
+        "https://earlysignal.news/s/vercel-labs-agent-desktop"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "按集成而定",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 2,
+    "verdict": "给 Agent 结构化的桌面观察与操作接口，不是独立办公助理。",
+    "heat": "11 月 3 日日榜选题，11 月 4 日资料评估完成；不报告实时排名或未经核验的增长。",
+    "bodyPath": "articles/agent-desktop/2026-11-04.md",
+    "scope": "11 月 3 日热门候选；不是 11 月 4 日实时榜单。"
+  },
+  {
+    "id": "worktrunk",
+    "repo": "max-sixty/worktrunk",
+    "name": "Worktrunk",
+    "category": "AI 与开发",
+    "decision": "按痛点采用",
+    "tagline": "把并行工作目录管理简单化，不替你协调 Agent 或解决冲突。",
+    "benefit": "多个代码任务的准备、状态查看、审核与清理。",
+    "flow": [
+      "多个独立代码任务",
+      "工作树、状态与生命周期",
+      "各自可审核的变更"
+    ],
+    "sources": [
+      [
+        "官方 README 与双许可声明",
+        "https://github.com/max-sixty/worktrunk#readme"
+      ],
+      [
+        "官方 shell 集成说明",
+        "https://worktrunk.dev/shell-integration/"
+      ],
+      [
+        "v0.81.0 正式发布记录",
+        "https://github.com/max-sixty/worktrunk/releases/tag/v0.81.0"
+      ],
+      [
+        "ReviewRamble：披露基于资料与用户报告，非实验室实测",
+        "https://www.reviewramble.com/github-repos/worktrunk"
+      ],
+      [
+        "Reddit 作者发布帖与用户讨论：历史经验，非基准",
+        "https://www.reddit.com/r/ClaudeAI/comments/1p7l2gs/worktrunk_git_worktree_manager_designed_for/"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "按集成而定",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 3,
+    "verdict": "把并行工作目录管理简单化，不替你协调 Agent 或解决冲突。",
+    "heat": "11 月 3 日日榜选题，11 月 4 日资料评估完成；不报告实时排名或未经核验的增长。",
+    "bodyPath": "articles/worktrunk/2026-11-04.md",
+    "scope": "11 月 3 日热门候选；不是 11 月 4 日实时榜单。"
+  },
+  {
+    "id": "claude-mem",
+    "repo": "thedotmack/claude-mem",
+    "name": "claude-mem",
+    "category": "AI 与开发",
+    "decision": "有条件采用",
+    "tagline": "自动保存与检索工作背景，同时增加观察、存储与纠错责任。",
+    "benefit": "找回长期项目的排查线索和决策背景。",
+    "flow": [
+      "Agent 工作事件",
+      "观察、保存、分层检索",
+      "下一会话的相关背景"
+    ],
+    "sources": [
+      [
+        "官方 README：安装、记忆与可选数据能力",
+        "https://github.com/thedotmack/claude-mem#readme"
+      ],
+      [
+        "v15.9.0 正式发布：提供商、worker 与安全修订",
+        "https://github.com/thedotmack/claude-mem/releases/tag/v15.9.0"
+      ],
+      [
+        "Reddit 作者征集帖与相反用户体验：旧版本，非统一计费实验",
+        "https://www.reddit.com/r/ClaudeCode/comments/1scz5kk/claudemem_hit_45000_stars_on_github_today_and_it/"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "按集成而定",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 4,
+    "verdict": "自动保存与检索工作背景，同时增加观察、存储与纠错责任。",
+    "heat": "11 月 3 日日榜选题，11 月 4 日资料评估完成；不报告实时排名或未经核验的增长。",
+    "bodyPath": "articles/claude-mem/2026-11-04.md",
+    "scope": "11 月 3 日热门候选；不是 11 月 4 日实时榜单。"
+  },
+  {
+    "id": "scrapling",
+    "repo": "D4Vinci/Scrapling",
+    "name": "Scrapling",
+    "category": "办公与生活",
+    "decision": "按数据任务评估",
+    "tagline": "统一网页采集与解析；自适应匹配不是数据正确性的保证。",
+    "benefit": "允许采集的公开资料清单与结构化证据输入。",
+    "flow": [
+      "获许可的网址与字段",
+      "取页面、解析、校验、导出",
+      "带来源的数据或文本"
+    ],
+    "sources": [
+      [
+        "官方 README：当前采集、解析与 Spider 能力",
+        "https://github.com/D4Vinci/Scrapling#readme"
+      ],
+      [
+        "官方 v0.5 迁移文档",
+        "https://github.com/D4Vinci/Scrapling/blob/v0.5/docs/migrating-to-v0.5.md"
+      ],
+      [
+        "官方自适应选择器说明",
+        "https://scrapling.readthedocs.io/en/latest/parsing/adaptive.html"
+      ],
+      [
+        "SoloSoft 11 月 3 日批评性审查：本轮通过原站读取，未复现脚本",
+        "https://www.solosoft.dev/post/scrapling-audit-stars-benchmarks-adaptive-matcher/"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "按集成而定",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 5,
+    "verdict": "统一网页采集与解析；自适应匹配不是数据正确性的保证。",
+    "heat": "11 月 3 日日榜选题，11 月 4 日资料评估完成；不报告实时排名或未经核验的增长。",
+    "bodyPath": "articles/scrapling/2026-11-04.md",
+    "scope": "11 月 3 日热门候选；不是 11 月 4 日实时榜单。"
+  },
+  {
+    "id": "mattpocock-skills",
+    "repo": "mattpocock/skills",
+    "name": "Matt Pocock Skills",
+    "category": "AI 与开发",
+    "decision": "按失败类型选用",
+    "tagline": "可复用的访谈、规格与测试方法，不是更强的模型。",
+    "benefit": "减少需求误解，让任务、测试边界与审阅产物更明确。",
+    "flow": [
+      "模糊需求或过程痛点",
+      "访谈、规格、实施与审阅",
+      "可检查的协作产物"
+    ],
+    "sources": [
+      [
+        "官方 README：分类、入口与推荐流程",
+        "https://github.com/mattpocock/skills#readme"
+      ],
+      [
+        "v1.3.2 的 TDD 原文：本轮仅研究，未作为执行指令使用",
+        "https://github.com/mattpocock/skills/blob/v1.3.2/skills/engineering/tdd/SKILL.md"
+      ],
+      [
+        "v1.3.2 正式发布记录",
+        "https://github.com/mattpocock/skills/releases/tag/v1.3.2"
+      ],
+      [
+        "Reddit 分层组合与流程负担讨论，含推广与个人经验",
+        "https://www.reddit.com/r/claudeskills/comments/1wwqyom/matt_pocock_superpowers_openspec_do_you_pick_one/"
+      ],
+      [
+        "MrKeyoor：过程型评估与用户问题线索",
+        "https://mrkeyoor.com/repos/mattpocock-skills/"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "按集成而定",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 6,
+    "verdict": "可复用的访谈、规格与测试方法，不是更强的模型。",
+    "heat": "11 月 3 日日榜选题，11 月 4 日资料评估完成；不报告实时排名或未经核验的增长。",
+    "bodyPath": "articles/mattpocock-skills/2026-11-04.md",
+    "scope": "11 月 3 日热门候选；不是 11 月 4 日实时榜单。"
+  },
+  {
+    "id": "qwen-image",
+    "repo": "QwenLM/Qwen-Image",
+    "name": "Qwen-Image",
+    "category": "创作与表达",
+    "decision": "视觉草稿候选",
+    "tagline": "明确区分 2512 生图和 Edit-2511 改图，精确文字仍需校对。",
+    "benefit": "研究文章的封面、原理插图与视觉构思。",
+    "flow": [
+      "提示词或获授权图片",
+      "指定版本生成或编辑",
+      "待校对的视觉草稿"
+    ],
+    "scope": "创作专题补充；非日榜项目。指定模型，不宣称家族最新版本。",
+    "sources": [
+      [
+        "Qwen-Image-2512 官方模型卡与许可",
+        "https://huggingface.co/Qwen/Qwen-Image-2512"
+      ],
+      [
+        "Qwen-Image-Edit-2511 官方模型卡与许可",
+        "https://huggingface.co/Qwen/Qwen-Image-Edit-2511"
+      ],
+      [
+        "官方仓库与版本路线",
+        "https://github.com/QwenLM/Qwen-Image"
+      ],
+      [
+        "DataCamp 2026-01-09 海报工作流教程：非普通办公设备基准",
+        "https://www.datacamp.com/tutorial/qwen-image-2512-tutorial"
+      ],
+      [
+        "Reddit 发布后讨论：提示词与配置相关的个人体验",
+        "https://www.reddit.com/r/StableDiffusion/comments/1q2qe12/qwen_image_2512_3_days_later_discussion/"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "部署较高",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 7,
+    "verdict": "明确区分 2512 生图和 Edit-2511 改图，精确文字仍需校对。",
+    "heat": "创作专题补充；非日榜项目。指定模型，不宣称家族最新版本。",
+    "bodyPath": "articles/qwen-image/2026-11-04.md"
+  },
+  {
+    "id": "ltx-2",
+    "repo": "Lightricks/LTX-2",
+    "name": "LTX-2 / 2.5",
+    "category": "创作与表达",
+    "decision": "镜头素材候选",
+    "tagline": "生成音视频镜头，不替代准确录屏、剪辑和许可核验。",
+    "benefit": "视频介绍中的氛围与过渡素材，分开处理事实与视觉。",
+    "flow": [
+      "场景说明或参考图",
+      "选择权重与音视频流水线",
+      "待审阅、剪辑的镜头"
+    ],
+    "scope": "视频专题补充；非日榜项目。代码发行与 2.5 权重分别核验。",
+    "sources": [
+      [
+        "官方仓库：当前推荐流水线与资源说明",
+        "https://github.com/Lightricks/LTX-2"
+      ],
+      [
+        "LTX-2.5 官方模型卡与访问条件",
+        "https://huggingface.co/Lightricks/LTX-2.5"
+      ],
+      [
+        "LTX-2.x Community License 原文",
+        "https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2_x"
+      ],
+      [
+        "ltx-ai.com 第三方样本报告：非官方主域，本站未复现实验",
+        "https://ltx-ai.com/blog/ltx-2-5-review-local-audiovisual-video-generation"
+      ],
+      [
+        "Reddit 厂商 AMA：有利益关系的答问与用户反应",
+        "https://www.reddit.com/r/StableDiffusion/comments/1q7dzq2/im_the_cofounder_ceo_of_lightricks_we_just/"
+      ]
+    ],
+    "stage": "资料交叉评估",
+    "reviewedAt": "2026-11-04",
+    "evidenceDate": "2026-11-04",
+    "effort": "部署较高",
+    "confidence": "功能有官方依据；效果未本机验证",
+    "priority": 8,
+    "verdict": "生成音视频镜头，不替代准确录屏、剪辑和许可核验。",
+    "heat": "视频专题补充；非日榜项目。代码发行与 2.5 权重分别核验。",
+    "bodyPath": "articles/ltx-2/2026-11-04.md"
+  }
+]

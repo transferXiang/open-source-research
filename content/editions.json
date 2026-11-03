@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-11-04",
+    "title": "从热门到有用：六个日榜选题与两个图片视频项目",
+    "reviewIds": [
+      "hex-2026-11-04",
+      "agent-desktop-2026-11-04",
+      "worktrunk-2026-11-04",
+      "claude-mem-2026-11-04",
+      "scrapling-2026-11-04",
+      "mattpocock-skills-2026-11-04",
+      "qwen-image-2026-11-04",
+      "ltx-2-2026-11-04"
+    ]
+  },
+  {
     "id": "2026-11-03",
     "title": "重新评估 MarkItDown：按任务采用，而非统一推荐",
     "reviewIds": [
