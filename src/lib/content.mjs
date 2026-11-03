@@ -1,39 +1,29 @@
 import fs from 'node:fs';
-import { createRenderer, publicLinks, link } from './render.mjs';
+import {createRenderer,publicLinks,link} from './render.mjs';
 import {reviewPage} from './review.mjs';
-const read = p => JSON.parse(fs.readFileSync(new URL('../../..' + p, import.meta.url), 'utf8'));
-export const evidence = {projects:fs.readdirSync(new URL('../../../content/snapshots/',import.meta.url)).filter(f=>f.endsWith('.json')).sort().flatMap(f=>read('/content/snapshots/'+f).projects)};
-export const projects = read('/content/projects.json');
-export const reviewFiles = fs.readdirSync(new URL('../../../content/reviews/',import.meta.url)).filter(f=>f.endsWith('.json'));
-const reviewEntries=reviewFiles.flatMap(f=>read('/content/reviews/'+f).map(r=>({...r,reviewedAt:f.slice(0,-5)})));
-export const reports = projects.map(p => {
-  const date = p.currentReviewId.slice(-10);
-  const review = read('/content/reviews/' + date + '.json').find(r => r.id === p.id);
-  if (!review) throw new Error('Missing review: ' + p.currentReviewId);
-  return {...review,reviewedAt:date};
-});
-export const topics = read('/content/topics.json');
-export const tests = read('/content/tests.json');
-export const editions = read('/content/editions.json');
-export const data = { reports, evidence, topics, tests };
-export const render = createRenderer(data);
-const utility = {
-  'about/methodology': ['研究方法', '先核验事实，再解释适用性。', '<h2>八个维度，回答真实选择</h2><p>每份评估依次解释：解决什么问题、输入与输出、近期变化、替代方案、工作生活用途、成本门槛、试用方法、最终判断。作者宣传、用户报告、分析判断和产品实测分别对待。</p><h2>热度不是推荐</h2><p>Star 是累计快照；没有连续采集记录时不宣称近七天增量，也不把入选项目称为全站排名。选择兼顾近期活动、创作价值和办公需求，不代表 GitHub 官方榜单。</p><h2>复核与版本</h2><p>内容按评估分别记录证据日期，目前覆盖 2026-11-01 与 2026-11-03。自动刷新 Star 不会修改研究复核日期。重大结论更新新增固定评估，旧评估保留；当前档案指向最新一版。</p><h2>实测与边界</h2><p>当前全部为公开文档、版本及问题抽样调研，已完成产品实测为 0。试用预算不是性能承诺。软件许可、模型、素材和服务条款需要分别核验。</p><h2>更新方式</h2><p>目前手动研究与发布，尚未启用自动监测。订阅 RSS 可跟踪后续发布；本地收藏不上传，也不跨设备同步。</p>'],
-  'about/changelog': ['更新记录', '每次发布保留研究和修订的来处。', '<h2>2026-11-03 · 新增三份评估</h2><p>新增 Archify、MarkItDown 与 context-mode，项目库共 13 份档案。context-mode 为受限许可源码可用项目，单独标注。前一期记录与原始日期保留。</p><h2>2026-11-01 · 公开站首发</h2><p>发布 10 份深度评估、3 个专题、3 项待测试计划；支持手机、分类、全文搜索、本地收藏和三项目比较。内容基于当日研究快照，不是实时榜单。</p><p>本地探索稿未通过公开审查，不随站点发布。后续补充新一期研究时在此记录。</p>'],
-  'about/correction': ['纠错与反馈', '欢迎带着来源补充和纠正。', '<h2>请提供这些信息</h2><p>页面链接、需要修正的原文、正确结论及官方来源、涉及的软件版本与日期。如为产品实测，请补充脱敏复现样本，不要提交密钥和私人文件。</p><p><a href="https://github.com/transferXiang/open-source-research/issues/new">在 GitHub 提交反馈 →</a></p><p>重要事实修订会记录原因和日期；推荐结论发生变化时新增评估版本。</p>']
+const read=p=>JSON.parse(fs.readFileSync(new URL('../../../content/'+p,import.meta.url),'utf8'));
+export const projects=read('projects.json');
+export const reports=read('reviews/2026-11-03.json');
+export const evidence=read('snapshots/2026-11-03.json');
+export const topics=read('topics.json'),tests=read('tests.json'),editions=read('editions.json');
+export const data={reports,evidence,topics,tests};
+export const render=createRenderer(data);
+export const routes=['','projects','saved','compare','search','research','research/2026-11-03','topics','tests','about/methodology','about/changelog','about/correction','projects/markitdown','projects/markitdown/history','reviews/markitdown/2026-11-03'];
+const notes={
+'about/methodology':['研究标准','文章的长度不是深度，决定质量的是证据和解释。','<h2>产品说明必须具体</h2><p>解释产品在实际流程中负责哪一步，列明输入、处理方式、输出与不负责的任务。不能只复制支持格式、功能清单或 Star 数量。</p><h2>四类证据分开</h2><p>官方文档用于核验定位与版本；独立评测检查样本、配置和可复现性；用户报告注明时间与版本；本站判断解释这些材料能支持多窄的结论。本机实测必须有环境、输入、输出和原始记录，网页布局测试不算产品实测。</p><h2>外部评价不等于中立</h2><p>核验来源是否属于厂商、竞品作者、赞助内容或推广页面。厂商基准不是自动无效，但必须披露利益关系。同一份数据的多个转述不算多份独立证据，失效或无法核验的原文不支撑具体数字。</p><h2>图片和视频的角色</h2><p>优先展示能解释操作、输入输出和失败条件的材料。示意图、官方演示与真实测试截图分别标注；不使用 AI 生成的虚构产品截图冒充实际界面。不为装饰嵌入无关视频，不复制整篇评测。</p><h2>准入与撤稿</h2><p>完整评估须包含使用流程、证据分歧、替代路线、成本、风险、具体用途与验收条件。达不到标准就撤下或留在私人候选池，不公开填充。2026-11-03 已撤回此前 13 份短评，MarkItDown 用重新研究的文章替代，其余项目暂不发布。</p><h2>仍有未知</h2><p>当前保留的文章是交叉资料评估，不是本机产品基准。未知效果不填数字，不打缺乏依据的综合分，也不把第三方的测试结果说成本站实测。</p>'],
+'about/changelog':['修订与撤稿记录','公开记录内容标准的变化。','<h2>2026-11-03 · 撤回旧短评并重写</h2><p>此前两期共 13 份短评未达到详细产品评估要求，已从正式项目库、搜索、RSS 和期刊撤下。旧的待测试计划、专题框架也一并撤下，避免继续制造完成度假象。</p><p>同日发布 MarkItDown 重写评估，取代原短版，新增独立教程、社区反馈、第三方比较、具体风险、示意图与任务化结论。旧稿在站点外本地备份，Git 历史也可恢复；没有删除私人原始资料。</p><p>当前正式文章 1 篇，本机产品实测 0 项。其他项目只有完成重新研究才会恢复，不承诺保留旧推荐结论。</p>'],
+'about/correction':['纠错与反馈','请给出具体页面、版本和依据。','<p>欢迎提供原文链接、错误位置、软件版本与复现材料；不要提交密钥或私人文件。</p><p><a href="https://github.com/transferXiang/open-source-research/issues/new">提交 GitHub Issue →</a></p>']
 };
-export const routes = ['', 'projects','saved','compare','search','research',...editions.map(e=>'research/'+e.id),'topics','tests',...Object.keys(utility),...render.T.map(t=>'topics/'+t.id),...render.tests.map(t=>'tests/'+t.id),...reports.flatMap(r=>['projects/'+r.id,'projects/'+r.id+'/history']),...reviewEntries.map(r=>'reviews/'+r.id+'/'+r.reviewedAt)];
-export function page(path) {
-  const [kind,id,sub] = path.split('/'); let html;
-  if (!kind) html=render.home();
-  else if (utility[path]) {const [title,desc,body]=utility[path];html=render.pageHead(title,desc,path)+'<article class="reading" style="max-width:780px">'+body+'</article>';}
-  else if (kind==='projects' && id && sub==='history') {const r=reports.find(r=>r.id===id);html=render.pageHead(r.name+' · 研究历史','每次判断都保留固定版本。',path)+reviewEntries.filter(r=>r.id===id).toSorted((a,b)=>b.reviewedAt.localeCompare(a.reviewedAt)).map(r=>`<article class="feature"><h2>${r.reviewedAt}</h2><p>${r.decision} · 文档调研，未实测</p><a href="${link('reviews/'+id+'/'+r.reviewedAt)}">阅读固定评估 →</a> · <a href="${link('projects/'+id)}">当前档案 →</a></article>`).join('');}
-  else if ((kind==='projects'||kind==='reviews') && id) {const date=kind==='reviews'?sub:projects.find(p=>p.id===id).currentReviewId.slice(-10);const r=reviewEntries.find(r=>r.id===id&&r.reviewedAt===date);const snapshot=read('/content/snapshots/'+date+'.json');html=reviewPage(r,snapshot.projects.find(m=>m.repo===r.repo),date,kind==='reviews');}
-  else if (kind==='projects'||kind==='saved') html=render.projectList(kind==='saved').replace('<div class="grid" id="project-cards"></div>','<div class="grid" id="project-cards">'+(kind==='saved'?'':render.cards(render.R))+'</div>');
-  else if (kind==='research') {const chosen=editions.find(e=>e.id===id);html=render.pageHead(chosen?chosen.title:'调研期刊',chosen?(chosen.description||'固定评估与当时结论，后续更新不覆盖历史。'):'每一期引用固定日期的评估；从这里回看研究脉络。',path);if(!id)html+=editions.map(e=>'<article class="feature"><div class="kicker">'+e.id+'</div><h2><a href="'+link('research/'+e.id)+'">'+e.title+'</a></h2><p>'+e.reviewIds.length+' 份评估 · 文档调研，未实测</p></article>').join('');else html+='<div class="notice">证据截止 '+id+'；文档调研，未运行产品。缓存周榜仅用于发现候选，不用于计算实时涨幅。旧项目保留其原始复核日期。</div><div class="grid">'+chosen.reviewIds.map(ref=>{const date=ref.slice(-10),pid=ref.slice(0,-11),r=reviewEntries.find(r=>r.id===pid&&r.reviewedAt===date);return '<article class="project-card"><span class="pill">'+r.decision+'</span><h2>'+r.name+'</h2><p>'+r.tagline+'</p><p>'+r.verdict+'</p><a href="'+link('reviews/'+pid+'/'+date)+'">阅读八节深度评估 →</a></article>';}).join('')+'</div>';}
-  else if (kind==='topics') html=render.topics(id);
-  else if (kind==='tests') html=render.lab(id);
-  else if (kind==='search') html=render.searchPage(new URLSearchParams()).replace(/<p class="home-note">[\s\S]*?<\/p>/,'<p class="home-note">搜索在浏览器中进行，不上传查询内容。</p>');
-  else if (kind==='compare') html=render.comparePage(new URLSearchParams());
-  return publicLinks(html);
+export function page(path){
+const [kind,id,sub]=path.split('/');let html='';
+if(!kind)html=render.home();
+else if(notes[path]){const [title,desc,body]=notes[path];html=render.pageHead(title,desc,path)+'<article class="reading" style="max-width:780px">'+body+'</article>';}
+else if(kind==='projects'&&sub==='history')html=render.pageHead('MarkItDown · 修订历史','旧短评已撤回，不再作为有效结论。',path)+'<div class="feature"><h2>2026-11-03 · 交叉资料评估重写</h2><p>替代同日短版；从统一推荐改为按任务分流。</p><a href="'+link('reviews/markitdown/2026-11-03')+'">阅读完整版本 →</a></div>';
+else if((kind==='projects'||kind==='reviews')&&id)html=reviewPage(reports[0],evidence.projects[0],'2026-11-03',kind==='reviews');
+else if(kind==='projects'||kind==='saved')html=render.projectList(kind==='saved').replace('<div class="grid" id="project-cards"></div>','<div class="grid" id="project-cards">'+(kind==='saved'?'':render.cards(reports))+'</div>');
+else if(kind==='research')html=render.pageHead('重新评估：MarkItDown','原两期短评已撤回，本期只发布完成重写的内容。',path)+'<article class="feature"><div class="kicker">2026-11-03 · 修订版</div><h2>一个转换工具，为什么必须分任务评价？</h2><p>完整产品说明、第三方评价的分歧、具体风险、工作场景和试点门槛。</p><a class="cta" href="'+link('reviews/markitdown/2026-11-03')+'">阅读完整评估 →</a></article>';
+else if(kind==='topics'||kind==='tests')html=render.pageHead(kind==='topics'?'专题指南':'实测记录','原有框架与计划已撤下，避免与完成的研究混淆。',path)+'<div class="notice">目前没有达到发布标准的'+(kind==='topics'?'独立专题':'本机实测')+'。请先阅读项目评估；后续只有具备依据的内容才会发布。</div>';
+else if(kind==='search')html=render.searchPage(new URLSearchParams()).split('<p class="home-note">')[0]+'<p class="home-note">搜索仅包含当前正式发布内容；已撤短评不进入索引。</p>';
+else if(kind==='compare')html=render.comparePage(new URLSearchParams());
+return publicLinks(html);
 }

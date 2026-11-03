@@ -1,22 +1,16 @@
 const {chromium}=require('playwright');
-const fs=require('node:fs');
-const assert=require('node:assert/strict');
+const fs=require('node:fs'),assert=require('node:assert/strict');
 (async()=>{
-const browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
-const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
-const base=process.env.QA_URL||'http://127.0.0.1:4321/open-source-research/';fs.mkdirSync('qa',{recursive:true});
-await page.goto(base);await page.screenshot({path:'qa/home-desktop.png',fullPage:true});
-await page.goto(base+'projects/');await page.getByRole('button',{name:'创作与表达',exact:true}).click();assert.equal(await page.locator('.project-card').count(),4);
-await page.getByRole('button',{name:'全部',exact:true}).click();await page.locator('[data-compare="hyperframes"]').click();await page.locator('[data-compare="digup"]').click();await page.getByRole('link',{name:'按用途比较 →'}).click();await page.locator('thead th').first().waitFor();assert.equal(await page.locator('thead th').count(),3);
-await page.goto(base+'projects/hyperframes/');await page.locator('[data-save]').click();await page.waitForFunction(()=>document.querySelector('[data-save]').getAttribute('aria-pressed')==='true');await page.goto(base+'saved/');await page.locator('.project-card').first().waitFor();assert.equal(await page.locator('.project-card').count(),1);
-await page.goto(base+'search/?q='+encodeURIComponent('中文'));await page.locator('.project-card').first().waitFor();assert.ok(await page.locator('.project-card').count()>0);
-await page.goto(base+'reviews/hyperframes/2026-11-01/');assert.equal(await page.locator('.reading section[id^="s-"]').count(),8);await page.screenshot({path:'qa/article-desktop.png',fullPage:true});
-for(const width of [375,390,768,844]){
-await page.setViewportSize({width,height:width===844?390:844});
-for(const route of ['','projects/','projects/hyperframes/','compare/?ids=hyperframes,digup','topics/video-workflow/','tests/rule-video/']){
-await page.goto(base+route);const size=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth}));assert.ok(size.scroll<=size.width+1,`${width} ${route} overflow ${size.scroll}`);
-}
-}
-await page.setViewportSize({width:390,height:844});await page.goto(base);await page.getByRole('button',{name:'菜单',exact:true}).click();assert.equal(await page.locator('.primary').isVisible(),true);await page.screenshot({path:'qa/home-mobile-menu.png',fullPage:true});await page.getByRole('button',{name:'菜单',exact:true}).click();await page.screenshot({path:'qa/home-mobile.png',fullPage:true});
-await page.goto(base+'projects/hyperframes/');await page.screenshot({path:'qa/article-mobile.png',fullPage:true});assert.deepEqual(errors,[]);console.log('Browser QA passed: desktop, 375/390/768px and landscape; menus, filters, search, compare, saved.');await browser.close();
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+const p=await browser.newPage({viewport:{width:1440,height:1000}}),base=process.env.QA_URL||'http://127.0.0.1:4321/open-source-research/';
+const errors=[];p.on('pageerror',e=>errors.push(e.message));fs.mkdirSync('qa',{recursive:true});
+await p.goto(base+'projects/');await p.locator('#find').fill('MarkItDown');await p.waitForFunction(()=>document.querySelectorAll('.project-card').length===1);
+await p.goto(base+'projects/markitdown/');assert.equal(await p.locator('section[id^="s-"]').count(),8);assert.equal(await p.locator('.sources li').count(),9);assert.ok(await p.locator('.reading').innerText().then(s=>s.includes('Hacker News')));
+await p.locator('[data-save]').click();await p.waitForFunction(()=>document.querySelector('[data-save]').getAttribute('aria-pressed')==='true');await p.goto(base+'saved/');await p.locator('.project-card').waitFor();
+await p.goto(base+'search/?q='+encodeURIComponent('精度'));await p.locator('.project-card').first().waitFor();
+for(const width of [375,390,768,1440]){await p.setViewportSize({width,height:900});for(const route of ['', 'projects/markitdown/','about/methodology/']){await p.goto(base+route);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));}}
+await p.setViewportSize({width:390,height:844});await p.goto(base);await p.getByRole('button',{name:'菜单',exact:true}).click();assert.ok(await p.locator('.primary').isVisible());await p.getByRole('button',{name:'菜单',exact:true}).click();await p.screenshot({path:'qa/rebuilt-home-mobile.png',fullPage:true});
+await p.goto(base+'projects/markitdown/');await p.screenshot({path:'qa/deep-review-mobile.png',fullPage:true});
+if(!process.env.QA_URL){for(const id of ['hyperframes','archify','digup','context-mode'])assert.ok(!fs.existsSync('dist/projects/'+id+'/index.html'));assert.ok(!fs.existsSync('dist/research/2026-11-01/index.html'));}
+assert.deepEqual(errors,[]);await browser.close();console.log('QA passed: rewritten article, 9 sources, mobile layout, search, saved and withdrawn routes.');
 })().catch(e=>{console.error(e);process.exit(1)});

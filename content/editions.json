@@ -1,28 +1,9 @@
 [
   {
     "id": "2026-11-03",
-    "title": "把资料变成可用的 AI 输入与可分享的解释",
-    "description": "新增三份评估：交互图解、办公文件转换、上下文管理。context-mode 单独标注受限许可；不是图片视频生成模型榜单。",
+    "title": "重新评估 MarkItDown：按任务采用，而非统一推荐",
     "reviewIds": [
-      "archify-2026-11-03",
-      "context-mode-2026-11-03",
       "markitdown-2026-11-03"
-    ]
-  },
-  {
-    "id": "2026-11-01",
-    "title": "从热门项目，回到真正的工作场景。",
-    "reviewIds": [
-      "hyperframes-2026-11-01",
-      "digup-2026-11-01",
-      "superpowers-2026-11-01",
-      "claude-mem-2026-11-01",
-      "impeccable-2026-11-01",
-      "comfyui-2026-11-01",
-      "anatomy-2026-11-01",
-      "aihot-2026-11-01",
-      "deeptutor-2026-11-01",
-      "orkas-2026-11-01"
     ]
   }
 ]
