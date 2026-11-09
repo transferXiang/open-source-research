@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-09",
+  "timezone": "Asia/Shanghai",
+  "method": "GitHub API 与官方及外部材料阅读；未运行产品",
+  "projects": [
+    {
+      "repo": "vercel-labs/agent-browser",
+      "name": "agent-browser",
+      "stars": 47627,
+      "license": "Apache-2.0",
+      "release": {
+        "tag": "v0.41.2"
+      }
+    },
+    {
+      "repo": "github/spec-kit",
+      "name": "Spec Kit",
+      "stars": 148725,
+      "license": "MIT",
+      "release": {
+        "tag": "v1.3.2"
+      }
+    },
+    {
+      "repo": "blader/humanizer",
+      "name": "Humanizer",
+      "stars": 66522,
+      "license": "MIT",
+      "release": {"tag": "v3.1.0"}
+    }
+  ]
+}

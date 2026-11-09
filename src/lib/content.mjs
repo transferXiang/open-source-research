@@ -9,7 +9,7 @@ export const projects=read('projects.json');
 const allReports=loadReports();
 export const reports=projects.map(p=>({...allReports.find(r=>r.id===p.id&&r.reviewedAt===p.currentReviewId.slice(-10)),priority:p.priority}));
 const snapshots=fs.readdirSync(new URL('snapshots/',contentRoot)).filter(x=>x.endsWith('.json')).sort().map(f=>read('snapshots/'+f));
-export const evidence={date:'2026-11-04',projects:[...new Map(snapshots.flatMap(s=>s.projects).map(m=>[m.repo,m])).values()]};
+export const evidence={date:'2026-11-09',projects:[...new Map(snapshots.flatMap(s=>s.projects).map(m=>[m.repo,m])).values()]};
 export const topics=read('topics.json'),tests=read('tests.json'),editions=read('editions.json');
 export const data={reports:reports.map(({markdown,...r})=>r),evidence,topics,tests};
 export const render=createRenderer(data);
@@ -25,7 +25,7 @@ function edition(e){
  return '<article class="feature"><div class="kicker">'+e.id+' · '+list.length+' 篇</div><h2><a href="'+link('research/'+e.id)+'">'+e.title+'</a></h2><p>固定日期的资料型评估，不随当前档案静默更新。</p></article>'+list.map(r=>'<article class="issue-entry"><div><h3><a href="'+link('reviews/'+r.id+'/'+r.reviewedAt)+'">'+r.name+'</a></h3><p>'+r.tagline+'</p></div><a class="issue-entry-link" href="'+link('reviews/'+r.id+'/'+r.reviewedAt)+'">阅读评估 →</a></article>').join('');
 }
 function home(){
- return '<section class="hero"><div><div class="kicker">开源研究 / 2026.11.04</div><h1>先看懂产品，<br>再决定值不值得用。</h1><p>从输入、操作和产出解释项目；交叉阅读官方文档、外部评价和用户反馈，再判断它对工作与生活的价值。</p><div class="hero-actions"><a class="cta" href="'+link('research/2026-11-04')+'">阅读本期八篇研究 →</a><a class="text-link" href="'+link('about/methodology')+'">研究与证据标准 →</a></div></div><article class="feature"><div class="kicker">本期 / 六个热门选题 + 两个创作项目</div><h2>让 AI 更好用，<br>不只看功能清单。</h2><p>Hex 语音输入、桌面操作接口、开发协作、记忆、网页采集与工程技能；另补充 Qwen 图像和 LTX 视频路线。</p><div class="fact"><span>8 篇新评估 · 共 9 篇档案</span><span>资料研究 · 未下载安装</span></div><a href="'+link('projects/hex')+'">先用 Hex 理解研究方式 →</a></article></section><div class="notice">选题基于 11 月 3 日热门观察，资料完成与发布于 11 月 4 日；不是实时热榜。图片视频为专题补充。Star 不是产品质量或近期增长的证明。</div><div class="section-head"><h2>按任务找到值得了解的项目</h2><a href="'+link('topics')+'">阅读路径 →</a></div><div class="grid">'+render.cards(reports)+'</div><p class="home-note">此前 13 份浅层短评已撤下。这里展示的是重新研究后的文章，不沿用旧评分或旧推荐结论。</p>';
+ return '<section class="hero"><div><div class="kicker">开源研究 / 2026.11.09</div><h1>先看懂产品，<br>再决定值不值得用。</h1><p>从输入、操作和产出解释项目；交叉阅读官方文档、外部评价和用户反馈，再判断它对工作与生活的价值。</p><div class="hero-actions"><a class="cta" href="'+link('research/2026-11-09')+'">阅读本期三篇研究 →</a><a class="text-link" href="'+link('about/methodology')+'">研究与证据标准 →</a></div></div><article class="feature"><div class="kicker">本期 / 三个周榜选题</div><h2>让 AI 更好用，<br>不只看功能清单。</h2><p>agent-browser 网页操作、Spec Kit 需求协作、Humanizer 文字编辑；重点核对旧评价与当前能力的落差。</p><div class="fact"><span>3 篇新评估 · 共 12 篇档案</span><span>资料研究 · 未下载安装</span></div><a href="'+link('projects/agent-browser')+'">先看网页操作的能力与边界 →</a></article></section><div class="notice">本期选题来自 11 月 9 日访问的 GitHub 周榜；不是新发布项目榜，也不报告增长排名。此前图片视频研究仍保留独立日期。Star 不是产品质量或近期增长的证明。</div><div class="section-head"><h2>按任务找到值得了解的项目</h2><a href="'+link('topics')+'">阅读路径 →</a></div><div class="grid">'+render.cards(reports)+'</div><p class="home-note">此前 13 份浅层短评已撤下。这里展示的是重新研究后的文章，不沿用旧评分或旧推荐结论。</p>';
 }
 export function page(path){
  const [kind,id,sub]=path.split('/');let html='';
