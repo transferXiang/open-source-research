@@ -125,5 +125,181 @@
         "https://github.com/trending?since=weekly"
       ]
     ]
+  },
+  {
+    "id": "auto-ontology",
+    "name": "Auto Ontology",
+    "repo": "NVIDIA/auto-ontology",
+    "category": "AI 与开发",
+    "decision": "有跨系统口径痛点再评估",
+    "flow": [
+      "数据源与业务定义",
+      "整理实体、关系与查询依据",
+      "需要审阅的语义上下文与答案"
+    ],
+    "tagline": "为 AI 查询补上业务含义；不是个人文件整理工具。",
+    "sources": [
+      [
+        "官方 README：组件、模型与网络边界",
+        "https://github.com/NVIDIA/auto-ontology#readme"
+      ],
+      [
+        "官方连接与凭据文档",
+        "https://github.com/NVIDIA/auto-ontology/blob/main/docs/connections.md"
+      ],
+      [
+        "外部源码阅读：明确未运行，固定早期版本",
+        "https://fdeinterviews.com/blog/nvidia-auto-ontology-semantic-layer-for-ai-agents"
+      ],
+      [
+        "选题依据：11 月 9 日周榜存档，第三方采集",
+        "https://ageshio.dev/archive/2026-11-09/"
+      ]
+    ],
+    "stage": "交叉资料评估",
+    "reviewedAt": "2026-11-09",
+    "evidenceDate": "2026-11-09",
+    "priority": 1,
+    "effort": "依部署与服务而定",
+    "confidence": "功能有文档依据；实际效果未复现",
+    "benefit": "对开源研究站，当前更直接的是来源管理和内容校验，未必需要企业级语义基础设施。等你要持续比较多个结构化数据源、统一相互矛盾的定义时，这个方向才更有投入理由。成本包括服务运维、模型调用、凭据治理和业务审核，而不只是代码许可。",
+    "verdict": "值得继续跟踪，但不建议仅为了给个人资料加一个 AI 入口而部署。优先条件是：确有多个系统的业务口径冲突、有人负责术语审核、能够限制数据源与查询权限，并能让答案返回可检查依据。",
+    "heat": "2026-11-09 近期热门选题；仓库创建与热度不同，不称刚发布。",
+    "bodyPath": "articles/auto-ontology/2026-11-09.md",
+    "publishedAt": "2026-11-10"
+  },
+  {
+    "id": "openmausbot",
+    "name": "OpenMausBot",
+    "repo": "milind-soni/OpenMausBot",
+    "category": "AI 与开发",
+    "decision": "先核权限与隔离",
+    "flow": [
+      "任务、账号与允许资源",
+      "Agent 执行、权限确认、观察",
+      "需要核对的操作与产物"
+    ],
+    "tagline": "用聊天联系人组织多个 Agent；界面方便不等于执行隔离。",
+    "sources": [
+      [
+        "官方 README：产品与平台入口",
+        "https://github.com/milind-soni/OpenMausBot#readme"
+      ],
+      [
+        "官方 bot-box：启用条件与限制",
+        "https://github.com/milind-soni/OpenMausBot/blob/main/docs/bot-box.md"
+      ],
+      [
+        "官方安全政策",
+        "https://github.com/milind-soni/OpenMausBot/security"
+      ],
+      [
+        "官方许可分界",
+        "https://github.com/milind-soni/OpenMausBot/blob/main/LICENSING.md"
+      ],
+      [
+        "周榜存档：第三方采集，不是效果评测",
+        "https://ageshio.dev/archive/2026-11-09/"
+      ]
+    ],
+    "stage": "交叉资料评估",
+    "reviewedAt": "2026-11-09",
+    "evidenceDate": "2026-11-09",
+    "priority": 2,
+    "effort": "依部署与服务而定",
+    "confidence": "功能有文档依据；实际效果未复现",
+    "benefit": "它可能有助于管理长期调研的多个工作流，但不应从接入私人邮件、业务账号或整个电脑起步。更合适的候选任务是脱敏公开资料的整理，给每项任务明确允许目录、来源和输出要求，最终写入与发布仍由你审核。",
+    "verdict": "值得观察，但采用优先级低于解决眼前明确问题的工具。只有当你确实需要集中组织多个 Agent，并能解释每个执行环境的权限时，界面便利才可能转化成实际收益。日常账号和私人资料不应成为第一批验证输入。",
+    "heat": "2026-11-09 近期热门选题；仓库创建与热度不同，不称刚发布。",
+    "bodyPath": "articles/openmausbot/2026-11-09.md",
+    "publishedAt": "2026-11-10"
+  },
+  {
+    "id": "hallmark",
+    "name": "Hallmark",
+    "repo": "Nutlope/hallmark",
+    "category": "AI 与开发",
+    "decision": "先用于局部审查",
+    "flow": [
+      "页面任务与真实素材",
+      "设计约束、页面构建与检查",
+      "需要读者和功能验收的页面"
+    ],
+    "tagline": "给 AI 界面设计加任务约束与检查；不是自动保证好看的主题包。",
+    "sources": [
+      [
+        "官方 README：v2 方向与检查层级",
+        "https://github.com/Nutlope/hallmark#readme"
+      ],
+      [
+        "官方技能目录：执行规则与参考材料",
+        "https://github.com/Nutlope/hallmark/tree/main/skills/hallmark"
+      ],
+      [
+        "官方主题展示：维护者精选，不代表典型结果",
+        "https://www.usehallmark.com"
+      ],
+      [
+        "周榜与月榜存档：第三方热度采集",
+        "https://ageshio.dev/archive/2026-11-09/"
+      ]
+    ],
+    "stage": "交叉资料评估",
+    "reviewedAt": "2026-11-09",
+    "evidenceDate": "2026-11-09",
+    "priority": 3,
+    "effort": "依部署与服务而定",
+    "confidence": "功能有文档依据；实际效果未复现",
+    "benefit": "四个项目里，它与当前网站维护最直接相关。适合从一个指定页面的只读审查开始；不适合因为上榜就全站重设计。任务应该是找出阻碍阅读与操作的问题，而非单纯把页面做得更有风格。",
+    "verdict": "建议保留为局部审查候选，而不是把它视为质量保证。理想的第一次评估，是让它说明问题位置、影响和依据，并明确哪些只是审美偏好。先对问题达成共识，再授权改动，可以控制范围并减少无价值返工。",
+    "heat": "2026-11-09 近期热门选题；仓库创建与热度不同，不称刚发布。",
+    "bodyPath": "articles/hallmark/2026-11-09.md",
+    "publishedAt": "2026-11-10"
+  },
+  {
+    "id": "artcraft",
+    "name": "ArtCraft",
+    "repo": "storytold/artcraft",
+    "category": "创作与表达",
+    "decision": "创作工作台候选，暂不迁移正式流程",
+    "flow": [
+      "授权素材、构图与镜头目标",
+      "二维或三维编排、选模型生成",
+      "需要筛选和后期的图像视频素材"
+    ],
+    "tagline": "先布置画面再生成的 AI 创作工作台；不要与整个 Craft 应用家族混评。",
+    "sources": [
+      [
+        "官方 AI 工作台 README：功能、模型与许可",
+        "https://github.com/storytold/artcraft#readme"
+      ],
+      [
+        "独立后端仓库许可：不可套用桌面许可",
+        "https://github.com/storytold/artcraft-services/blob/main/LICENSE.md"
+      ],
+      [
+        "Creative Bloq 实际试用：针对独立 Craft 应用，非 AI 工作台",
+        "https://www.creativebloq.com/news/i-tried-those-free-ai-coded-adobe-creative-cloud-clones-and-they-have-some-big-problems"
+      ],
+      [
+        "官方工作台演示：精选展示，非本站测试",
+        "https://www.youtube.com/watch?v=kzvQMdg66Go"
+      ],
+      [
+        "11 月 9 日月榜存档：第三方采集",
+        "https://ageshio.dev/archive/2026-11-09/"
+      ]
+    ],
+    "stage": "交叉资料评估",
+    "reviewedAt": "2026-11-09",
+    "evidenceDate": "2026-11-09",
+    "priority": 4,
+    "effort": "依部署与服务而定",
+    "confidence": "功能有文档依据；实际效果未复现",
+    "benefit": "适合继续了解的是研究站插画、原理画面的概念草稿、文章封面和讲解视频的非事实镜头。正式业务图解中的字段、条件和数字，应保留可编辑并逐项核对；不能指望生成画面替你完成信息审查。",
+    "verdict": "它是本轮值得追踪的创作方向，但暂不建议迁移正式图片视频流程。应固定评估 AI 工作台，不把同品牌所有应用合并成一个“免费 Adobe 替代品”结论。官方演示可用于理解操作思路，不证明一般任务都能得到相同效果。",
+    "heat": "2026-11-09 近期热门选题；仓库创建与热度不同，不称刚发布。",
+    "bodyPath": "articles/artcraft/2026-11-09.md",
+    "publishedAt": "2026-11-10"
   }
 ]

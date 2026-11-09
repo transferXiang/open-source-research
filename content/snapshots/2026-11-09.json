@@ -26,7 +26,47 @@
       "name": "Humanizer",
       "stars": 66522,
       "license": "MIT",
-      "release": {"tag": "v3.1.0"}
+      "release": {
+        "tag": "v3.1.0"
+      }
+    },
+    {
+      "repo": "NVIDIA/auto-ontology",
+      "name": "Auto Ontology",
+      "stars": 10884,
+      "license": "Apache-2.0",
+      "created": "2026-04-27T21:45:56Z",
+      "release": null
+    },
+    {
+      "repo": "milind-soni/OpenMausBot",
+      "name": "OpenMausBot",
+      "stars": 19376,
+      "license": "Apache-2.0（enterprise 另有许可）",
+      "created": "2026-08-11T18:58:55Z",
+      "release": {
+        "tag": "v0.1.150",
+        "date": "2026-11-09T03:26:23Z"
+      }
+    },
+    {
+      "repo": "Nutlope/hallmark",
+      "name": "Hallmark",
+      "stars": 51533,
+      "license": "MIT",
+      "created": "2026-04-27T20:47:10Z",
+      "release": null
+    },
+    {
+      "repo": "storytold/artcraft",
+      "name": "ArtCraft",
+      "stars": 40161,
+      "license": "MIT OR Apache-2.0（桌面仓库）",
+      "created": "2022-03-31T23:19:12Z",
+      "release": {
+        "tag": "artcraft-v0.41.1",
+        "date": "2026-11-07T02:49:42Z"
+      }
     }
   ]
 }

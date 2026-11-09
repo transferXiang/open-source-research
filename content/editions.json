@@ -1,8 +1,12 @@
 [
   {
     "id": "2026-11-09",
-    "title": "从网页操作到需求协作与文字编辑：三个新项目的用途与证据",
+    "title": "近期升温项目：知识语义、Agent 工作台、界面设计与图片视频创作",
     "reviewIds": [
+      "auto-ontology-2026-11-09",
+      "openmausbot-2026-11-09",
+      "hallmark-2026-11-09",
+      "artcraft-2026-11-09",
       "agent-browser-2026-11-09",
       "spec-kit-2026-11-09",
       "humanizer-2026-11-09"
